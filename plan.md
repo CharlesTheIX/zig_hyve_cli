@@ -221,3 +221,20 @@ usage documentation matches implemented behavior and operational safeguards.
 6. Rollout verification is part of deployment success, not an optional
    postscript.
 7. Documentation and Ubuntu delivery checks follow the implemented behavior.
+
+## Execution status
+
+Implemented locally: JSON configuration and validation, explicit stage
+selection, command planning, bounded child-process execution, registry login
+through stdin, separate CMS/webapp build and push stages, OpenShift image
+updates and rollout checks, CLI help, and usage documentation.
+
+Verified locally with Zig 0.17.0: `zig build`, `zig fmt --check build.zig src`,
+`zig build run -- --help`, and a full placeholder-configuration dry run. No
+tests were added or run, and the dry run executed no external commands.
+
+Still pending before a real pipeline run: the external monorepo and its npm
+layout/scripts, actual registry and image references, approved credential
+source, OpenShift context/resources, and explicit approval for registry or
+cluster mutations. Ubuntu cross-compilation and runtime verification also
+remain pending confirmation of the deployment architecture and libc.
